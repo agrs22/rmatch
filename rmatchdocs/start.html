@@ -139,7 +139,30 @@
                                         </table>
                                     </div><!--//table-responsive-->
                                     </div><!--//code-block-->
-                                </div><!--//section-block-->
+                                
+                                
+                                <div id="rexample" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Example</h6>
+                                        <pre><code class="language-markup">require 'net/http' require 'uri'
+
+uri = URI.parse( "http://rmatch.herokuapp.com/instance/query" ) 
+params = {'apikey':'rmatch_key', 'instance':5, 'answin':[[1,2,4],[2,1,2],[3,5,5],[4,1,4]]}
+
+http = Net::HTTP.new(uri.host, uri.port) 
+request = Net::HTTP::Get.new(uri.path) 
+request.set_form_data( params )
+
+# instantiate a new Request object
+request = Net::HTTP::Get.new( uri.path+ '?' + request.body ) 
+
+response = http.request(request)
+puts response.body</code></pre>
+                                    </div><!--//code-block-->
+
+				</div><!--//section-block-->
                             </section><!--//doc-section-->
 
 
