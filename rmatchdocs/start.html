@@ -93,46 +93,28 @@
                                                     <td>This is a required parameter, please contact the developer for your key</td>
                                                     <td></td>
                                                 </tr>
-						<tr>
+												<tr>
                                                     <th scope="row">instance</th>
                                                     <td>intiger</td>
                                                     <td>This ID will determine with which user set to comare the set answers</td>
                                                     <td></td>
                                                 </tr>
-						<tr>
+												<tr>
+                                                    <th scope="row">q</th>
+                                                    <td>intiger</td>
+                                                    <td>This is an intiger with the question ID</td>
+                                                    <td></td>
+                                                </tr>
+												<tr>
                                                     <th scope="row">answin</th>
-                                                    <td>array</td>
-                                                    <td>This is an 3 x n array of the question's ID, the user's answers and their importance to the user</br><table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Question ID</th>
-                                                    <th>answer</th>
-                                                    <th>importance</th>
+                                                    <td>intiger</td>
+                                                    <td>This will be the user's answer to the question with ID:<i>q</i></td>
+                                                    <td></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>2</td>
-                                                    <td>3</td>
-                                                </tr>
-						<tr>
-                                                    <th scope="row">2</th>
-                                                    <td>2</td>
-                                                    <td>5</td>
-                                                </tr>
-						<tr>
-                                                    <th scope="row">...</th>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-						<tr>
-                                                    <th scope="row">n</th>
-                                                    <td>(1 - 5)</td>
-                                                    <td>(1 - 5)</td>
-                                                </tr>
-                                            </tbody>
-                                        </table></td>
+												<tr>
+                                                    <th scope="row">ansimp</th>
+                                                    <td>intiger</td>
+                                                    <td>This will be the importance to user's answer to the question with ID:<i>q</i></td>
                                                     <td></td>
                                                 </tr>
                                             </tbody>
@@ -149,7 +131,7 @@
                                         <pre><code class="language-markup">require 'net/http' require 'uri'
 
 uri = URI.parse( "http://rmatch.herokuapp.com/instance/query" ) 
-params = {'apikey':'rmatch_key', 'instance':5, 'answin':[[1,2,4],[2,1,2],[3,5,5],[4,1,4]]}
+params = {'apikey':'rmatch_key', 'instance':5, 'q':3, 'answin':2, 'ansimp':5}
 
 http = Net::HTTP.new(uri.host, uri.port) 
 request = Net::HTTP::Get.new(uri.path) 
