@@ -9,5 +9,111 @@ ar_internal_metadata:
   records: 
   - - environment
     - development
-    - '2016-11-10 22:41:49.402333'
-    - '2016-11-10 22:41:49.402333'
+    - '2016-11-10 23:03:04.081774'
+    - '2016-11-10 23:03:04.081774'
+
+---
+topics:
+  columns:
+  - id
+  - name
+  records:
+  - - 4
+    - "Politk"
+
+---
+questions:
+  columns:
+  - id
+  - question
+  - topic_id
+  - answers
+  records:
+  - - 18
+    - "¿Se debería requerir a los empleadores a que pagasen a hombres y mujeres el
+      mismo salario por el mismo trabajo?"
+    - 4
+    - "{no,si}"
+  - - 19
+    - "¿Debería exigirse a las empresas que ofrezcan bajas pagadas a empleados por
+      tener un hijo o por enfermedad de un familiar?"
+    - 4
+    - "{no,si}"
+  - - 20
+    - "¿Está a favor de los estándares nacionales básicos comunes?"
+    - 4
+    - "{no,si}"
+  - - 21
+    - "¿Estás a favor de que se aumenten los impuestos para los ricos para así reducir
+      los tipos de interés de los préstamos estudiantiles?"
+    - 4
+    - "{no,si}"
+  - - 22
+    - "Debe seguir siendo nuestro país en la OTAN?"
+    - 4
+    - "{no,si}"
+  - - 23
+    - "¿Debería restringirse más el procedimiento actual de compra de armas? "
+    - 4
+    - "{no,si}"
+  - - 24
+    - "¿Deberían tener el derecho a votar los delincuentes en prisión?"
+    - 4
+    - "{no,si}"
+  - - 25
+    - "¿Debe el gobierno aumentar o disminuir la cantidad de visas de trabajo temporales
+      otorgados a trabajadores inmigrantes altamente cualificados?"
+    - 4
+    - "{Disminuir,Mantenerse,Aumentar}"
+  - - 26
+    - "¿Debería todo ciudadano de 18 años cumplir al menos un año de servicio militar?"
+    - 4
+    - "{no,si}"
+  - - 27
+    - "¿El gobierno debería aumentar o reducir el gasto militar?"
+    - 4
+    - "{Reducir,Mantenerse,Aumentar}"
+  - - 28
+    - "¿Deberían los EE.UU. derrocar al presidente Assad de Siria?"
+    - 4
+    - "{no,si}"
+  - - 29
+    - "¿Debe el gobierno aumentar o disminuir el gasto de la ayuda externa?"
+    - 4
+    - "{Disminuir,Mantenerse,Aumentar}"
+
+---
+
+users:
+  columns:
+  - id
+  - name
+  - party
+  - picture
+  - other_data
+  - dataset
+  records:
+  - - 9
+    - Trump
+    - Republican
+    - https://lh5.googleusercontent.com/-Sv0q6lkSAGM/AAAAAAAAAAI/AAAAAAAAAVA/9wS9aK9rScw/s0-c-k-no-ns/photo.jpg
+    -
+    - "{18,1,19,2,20,1,21,1,22,1,23,1,24,1,25,1,26,2,27,3,28,1,29,1}"
+  - - 10
+    - Hillary
+    - Democrat
+    - https://upload.wikimedia.org/wikipedia/commons/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg
+    -
+    - "{18,2,19,2,20,2,21,2,22,2,23,2,24,2,25,3,26,1,27,2,28,2,29,3}"
+  - - 11
+    - Garry
+    - Libertarian
+    - http://thelibertarianrepublic.com/wp-content/uploads/2016/01/Gary-Johnsonx-large-1.jpg
+    -
+    - "{18,1,19,1,20,1,21,1,22,2,23,1,24,2,25,3,26,1,27,1,28,1,29,1}"
+  - - 12
+    - Stein
+    - Green
+    - https://pbs.twimg.com/profile_images/756593715833995264/58FJ0pQJ.jpg
+    -
+    - "{18,1,19,2,20,1,21,2,22,1,23,2,24,2,25,3,26,1,27,1,28,1,29,3}"

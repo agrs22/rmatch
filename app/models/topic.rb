@@ -1,6 +1,5 @@
 class Topic < ApplicationRecord
   has_many :questions
-  has_many :instances
 
   public
   def self.get_first(topic_name)
