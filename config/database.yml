@@ -38,9 +38,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: dbgjd3cnrvn4eo
+  database: ddn06k38tk3isa
   pool: 5
-  username: qkodwimfrxfhoc
-  password: j8-TY6sGR9pchWlWh5jsoRbNem
+  username: gzytrdkscovecm
+  password: 3oWQgfNUMTIrqmhrEiryMqGWza
   timeout: 5000
-  host: ec2-54-243-200-110.compute-1.amazonaws.com
+  host: ec2-54-243-190-100.compute-1.amazonaws.com

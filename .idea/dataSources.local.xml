@@ -8,8 +8,8 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>agrs22</user-name>
-      <introspection-scope>rmatch:public,pg_catalog,agrs22</introspection-scope>
-      <resolve-scope>rmatch:public,agrs22</resolve-scope>
+      <introspection-scope>rmatch:agrs22,pg_catalog,public</introspection-scope>
+      <resolve-scope>rmatch:agrs22,public</resolve-scope>
     </data-source>
   </component>
 </project>
