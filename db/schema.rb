@@ -16,10 +16,8 @@ ActiveRecord::Schema.define(version: 20161119013736) do
   enable_extension "plpgsql"
 
   create_table "instances", force: :cascade do |t|
-    t.string  "name"
-    t.string  "answin"
-    t.integer "topic_id"
-    t.index ["topic_id"], name: "index_instances_on_topic_id", using: :btree
+    t.string "name"
+    t.string "answin"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -41,6 +39,5 @@ ActiveRecord::Schema.define(version: 20161119013736) do
     t.text   "dataset",    default: [], array: true
   end
 
-  add_foreign_key "instances", "topics"
   add_foreign_key "questions", "topics"
 end

@@ -6,20 +6,11 @@ ar_internal_metadata:
   - value
   - created_at
   - updated_at
-  records: 
+  records:
   - - environment
     - development
     - '2016-11-10 23:03:04.081774'
     - '2016-11-10 23:03:04.081774'
-
----
-topics:
-  columns:
-  - id
-  - name
-  records:
-  - - 4
-    - "Politk"
 
 ---
 questions:
@@ -49,7 +40,7 @@ questions:
     - 4
     - "{no,si}"
   - - 22
-    - "Debe seguir siendo nuestro país en la OTAN?"
+    - Debe seguir siendo nuestro país en la OTAN?
     - 4
     - "{no,si}"
   - - 23
@@ -83,7 +74,15 @@ questions:
     - "{Disminuir,Mantenerse,Aumentar}"
 
 ---
+topics:
+  columns:
+  - id
+  - name
+  records:
+  - - 4
+    - Politk
 
+---
 users:
   columns:
   - id

@@ -60,14 +60,15 @@
                             
                             
                             <section id="request" class="doc-section">
-                                <h2 class="section-title">Request</h2>
+                                <h2 class="section-title">Starting the conversation</h2>
                                 
                                 <div id="rurl" class="section-block">
                                     
                                    
                                     <div class="code-block">
-                                        <h6>Request URL</h6>
-                                        <pre><code class="language-markup">http://rmatch.herokuapp.com/instance/query</code></pre>
+                                        <h6>Entrypoint URL</h6>
+										</br><p>This is the URL with wich you will be comunicating with</p> </br>
+                                        <pre><code class="language-markup">http://rmatch.herokuapp.com/topics/start</code></pre>
                                     </div><!--//code-block-->
                                 </div><!--//section-block-->
                            
@@ -75,8 +76,10 @@
                                     
                                    
                                     <div class="code-block">
-                                        <h6>Parameters</h6>
-                                                                            <div class="table-responsive">
+                                        <h6>Required parameters</h6>
+										</br>
+										<p>These parameters are all sent within a hash named <i><b>rmatch</b></i> for an example of the formed(unencoded) URL please skip ahead to example</p>
+                                                                            </br><div class="table-responsive">
                                         <table class="table">
                                             <thead>
                                                 <tr>
@@ -88,33 +91,130 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">apikey</th>
+                                                    <th scope="row">topic_name</th>
                                                     <td>string</td>
-                                                    <td>This is a required parameter, please contact the developer for your key</td>
+                                                    <td>This parameter is the topic for which you will be running rmatch, as rmatch can be used to match within many diffrent topics it is a required parameter</td>
                                                     <td></td>
                                                 </tr>
 												<tr>
-                                                    <th scope="row">instance</th>
-                                                    <td>intiger</td>
-                                                    <td>This ID will determine with which user set to comare the set answers</td>
+                                                    <th scope="row">session_data</th>
+                                                    <td>array</td>
+                                                    <td>This is your conversation record data structure, to initiate a new conversation please send the default value</td>
+                                                    <td>[[],[],[]]</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                    </div><!--//code-block-->
+                                
+                                </div>
+                                <div id="rexample" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Parameter structure</h6>
+                                        <pre><code class="language-markup">rmatch={"topic_name":"Politk","session_data":[[],[],[]]}</code></pre>
+                                    </div><!--//code-block-->
+
+								</div><!--//section-block-->
+								<div id="screxamplereq" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Sample request</h6>
+                                        <pre><code class="language-markup">http://rmatch.herokuapp.com/topics/start?rmatch={"topic_name":"Politk","session_data":[[],[],[]]}</code></pre>
+                                    </div><!--//code-block-->
+
+								</div><!--//section-block-->
+								
+								
+								<div id="screxampleresp" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Sample Response</h6>
+                                        <pre>
+<code class="language-markup">{
+ 	"session_data":[[],[],[]],
+	"Type":"question",
+	"response":[{
+				"id":8,
+				"question":"¿Debe el gobierno aumentar o disminuir la cantidad de visas de trabajo temporales otorgados a trabajadores inmigrantes altamente cualificados?",
+				"topic_id":1,
+				"answers":["Disminuir","Mantenerse","Aumentar"]
+				}]
+}</code></pre>
+                                    </div><!--//code-block-->
+
+								</div><!--//section-block-->
+								
+                            </section><!--//doc-section-->
+
+
+
+							
+							
+							
+							
+ <section id="ccrequest" class="doc-section">
+                                <h2 class="section-title">Continuing the conversation</h2>
+                                
+                                <div id="ccrurl" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Entrypoint URL</h6>
+										</br><p>This is the URL with wich you will be comunicating with once you've gotten your first response for the API</p> </br>
+                                        <pre><code class="language-markup">http://rmatch.herokuapp.com/topics/start</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//section-block-->
+                           
+                            	<div id="ccrparam" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Required parameters</h6>
+										</br>
+										<p>These parameters are all sent within a hash named <i><b>rmatch</b></i> and are a little diffrent from the ones you send on first contact, for an example of the formed(unencoded) URL please skip ahead to example</p>
+                                                                            </br><div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Type</th>
+                                                    <th>Description</th>
+                                                    <th>Default</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">topic_name</th>
+                                                    <td>string</td>
+                                                    <td>This parameter is the topic for which you will be running rmatch, as rmatch can be used to match within many diffrent topics it is a required parameter</td>
                                                     <td></td>
                                                 </tr>
 												<tr>
-                                                    <th scope="row">q</th>
-                                                    <td>intiger</td>
-                                                    <td>This is an intiger with the question ID</td>
+                                                    <th scope="row">question_id</th>
+                                                    <td>string</td>
+                                                    <td>This is the ID that was previously given to you in the response</td>
                                                     <td></td>
                                                 </tr>
 												<tr>
-                                                    <th scope="row">answin</th>
-                                                    <td>intiger</td>
-                                                    <td>This will be the user's answer to the question with ID:<i>q</i></td>
+                                                    <th scope="row">answer_input</th>
+                                                    <td>string</td>
+                                                    <td>This is the index of the answer array given to you in the response (starting at 1)</td>
                                                     <td></td>
                                                 </tr>
 												<tr>
-                                                    <th scope="row">ansimp</th>
-                                                    <td>intiger</td>
-                                                    <td>This will be the importance to user's answer to the question with ID:<i>q</i></td>
+                                                    <th scope="row">importance</th>
+                                                    <td>string</td>
+                                                    <td>This is how important the question is to the end user, where 1 is the most important and 5 is the least important</td>
+                                                    <td></td>
+                                                </tr>
+												<tr>
+                                                    <th scope="row">session_data</th>
+                                                    <td>array</td>
+                                                    <td>This is the conversation record data structure, to continue the conversation send the value that you got in the most recent response.</td>
                                                     <td></td>
                                                 </tr>
                                             </tbody>
@@ -122,47 +222,91 @@
                                     </div><!--//table-responsive-->
                                     </div><!--//code-block-->
                                 
-                                
-                                <div id="rexample" class="section-block">
+                                </div>
+                                <div id="ccrexample" class="section-block">
                                     
                                    
                                     <div class="code-block">
-                                        <h6>Example</h6>
-                                        <pre><code class="language-markup">require 'net/http' require 'uri'
-
-uri = URI.parse( "http://rmatch.herokuapp.com/instance/query" ) 
-params = {'apikey':'rmatch_key', 'instance':5, 'q':3, 'answin':2, 'ansimp':5}
-
-http = Net::HTTP.new(uri.host, uri.port) 
-request = Net::HTTP::Get.new(uri.path) 
-request.set_form_data( params )
-
-# instantiate a new Request object
-request = Net::HTTP::Get.new( uri.path+ '?' + request.body ) 
-
-response = http.request(request)
-puts response.body</code></pre>
+                                        <h6>Parameter structure</h6>
+                                        <pre><code class="language-markup">rmatch={"topic_name":"Politk","question_id":8,"answer_input":2,"importance":1,"session_data":[[],[],[]]}</code></pre>
                                     </div><!--//code-block-->
 
-				</div><!--//section-block-->
-                            </section><!--//doc-section-->
+								</div><!--//section-block-->
+								<div id="ccrexamplereq" class="section-block">
+                                    
+                                   
+                                    <div class="code-block">
+                                        <h6>Sample request</h6>
+                                        <pre><code class="language-markup">https://rmatch.herokuapp.com/topics/start?rmatch={"topic_name":"Politk","question_id":8,"answer_input":2,"importance":1,"session_data":[[],[],[]]}</code></pre>
+                                    </div><!--//code-block-->
 
-
-
-				<section id="response" class="doc-section">
-                                <h2 class="section-title">Response</h2>
-                                
-                                <div id="rurl" class="section-block">
+								</div><!--//section-block-->
+								
+								
+								<div id="ccrexampleresp" class="section-block">
                                     
                                    
                                     <div class="code-block">
                                         <h6>Sample Response</h6>
-                                        <pre><code class="language-markup">http://rmatch.herokuapp.com/</code></pre>
+                                        <pre>
+<code class="language-markup">{
+"session_data":[[8],[2],[1]],
+"Type":"question",
+"response":[{
+			"id":11,
+			"question":"¿Deberían los EE.UU. derrocar al presidente Assad de Siria?",
+			"topic_id":1,
+			"answers":["no","si"]
+			}]
+}</code></pre>
                                     </div><!--//code-block-->
-                                </div><!--//section-block-->
-                           
-                            
+									
+									 <div class="code-block">
+                                        <h6>Sample Response once match is found</h6>
+                                        <pre>
+<code class="language-markup">{
+"session_data":[
+				[8,2,3,5,10,12],
+				[2,2,1,2,1,1],
+				[1,3,2,1,2,4]
+				],
+"Type":"Answer",
+"response":{
+			"Best_match":
+						{
+						"name":"Garry",
+						"party":"Libertarian",
+						"photo":"http://thelibertarianrepublic.com/wp-content/uploads/2016/01/Gary-Johnsonx-large-1.jpg",
+						"rmatch_index":100
+						},
+			"other_matches":[{"name":"Hillary","rmatch_index":57},
+							 {"name":"Stein","rmatch_index":57},
+							 {"name":"Trump","rmatch_index":45}
+							]
+			},
+"keep_going":[{
+				"id":1,
+				"question":"¿Se debería requerir a los empleadores a que pagasen a hombres y mujeres el mismo salario por el mismo trabajo?",
+				"topic_id":1,
+				"answers":["no","si"]
+			}]
+}</code></pre>
+                                    </div><!--//code-block-->
+
+								</div><!--//section-block-->
+								
                             </section><!--//doc-section-->
+
+
+
+							
+							
+							
+							
+							
+							
+							
+							
 
 
                         </div><!--//content-inner-->
@@ -172,15 +316,24 @@ puts response.body</code></pre>
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                <li>
-                                    <a class="scrollto" href="#request">Request</a>
+                                    <a class="scrollto" href="#request">Starting the conversation</a>
                                     <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#rurl">Request URL</a></li>
-                                        <li><a class="scrollto" href="#rparam">Parameters</a></li>
-                                        <li><a class="scrollto" href="#rexample">Example</a></li>
+                                        <li><a class="scrollto" href="#rurl">Entrypoint URL</a></li>
+                                        <li><a class="scrollto" href="#rparam">Required parameters</a></li>
+                                        <li><a class="scrollto" href="#rexample">Parameter structure</a></li>
+                                        <li><a class="scrollto" href="#screxamplereq">Sample request</a></li>
+                                        <li><a class="scrollto" href="#screxampleresp">Sample response</a></li>
                                     </ul><!--//nav-->
                                 </li>
 								<li>
-                                    <a class="scrollto" href="#response">Response</a>
+                                    <a class="scrollto" href="#ccrequest">Continuing the conversation</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#ccrurl">Entrypoint URL</a></li>
+                                        <li><a class="scrollto" href="#ccrparam">Required parameters</a></li>
+                                        <li><a class="scrollto" href="#ccrexample">Parameter structure</a></li>
+                                        <li><a class="scrollto" href="#ccrexamplereq">Sample request</a></li>
+                                        <li><a class="scrollto" href="#ccrexampleresp">Sample response</a></li>
+                                    </ul><!--//nav-->
                                 </li>
                             </ul><!--//doc-menu-->
                         </nav>
