@@ -74,12 +74,12 @@ class Topic < ApplicationRecord
         @usrhash.push([usuario[:id]])
         percentage = 50
         for i in 0..(session_data[0].count - 1)
-           session_data[2][i]
+           session_data[2][i].to_i
           #p " candidate answer #{Hash[*usuario[:dataset].flatten(1)][session_data[0][i].to_s].to_i}, #{session_data[1][i]} to question #{session_data[0][i].to_s}"
-           if Hash[*usuario[:dataset].flatten(1)][session_data[0][i].to_s].to_i == session_data[1][i]
-             percentage = ((100/(session_data[0].count)) * (2.to_f/session_data[2][i])).ceil  + percentage
+           if Hash[*usuario[:dataset].flatten(1)][session_data[0][i].to_s].to_i == session_data[1][i].to_i
+             percentage = ((100/(session_data[0].count)) * (2.to_f/session_data[2][i].to_i)).ceil  + percentage
           else
-             percentage = percentage - ((100/(session_data[0].count)) * (1.to_f/session_data[2][i])).ceil
+             percentage = percentage - ((100/(session_data[0].count)) * (1.to_f/session_data[2][i].to_i)).ceil
           end
         end
         @usrhash[j].push(percentage)
